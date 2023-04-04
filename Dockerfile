@@ -8,6 +8,8 @@ COPY install.sh .
 
 COPY tutorial.txt /home/jdoe/
 
+COPY README.md /home/jdoe/
+
 RUN ["chmod", "+x", "./install.sh"]
 
 RUN ./install.sh

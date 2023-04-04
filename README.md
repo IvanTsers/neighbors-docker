@@ -41,16 +41,17 @@ When container is turned on successfully, you will see your username changes to 
     >jdoe@your_machine_name:~$
 
 The initial sudo password for jdoe is: `password`.
-To turn the container off and return to your host shell, press `Ctrl+D`.
+To stop the container and return to your host shell, press `Ctrl+D`.
 
 **Full functionality (recommended)** of the container is revealed with the following options:
 
-    docker run -it --env="DISPLAY" --net=host -v ~/neighbors_share:/home/jdoe/neighbors_share itsers/neighbors
+    docker run -it --env="DISPLAY" --net=host -v ~/neighbors_share:/home/jdoe/neighbors_share --detach-keys="ctrl-@" itsers/neighbors
 
-Flag info:
-`--env="DISPLAY"` and `--net=host`: this helps the container to connect to the host screen (needed to display graphic output)
-
-`-v ~/neighbors_share:/home/jdoe/neighbors`: this makes a folder shared between the neighbors container (`/home/jdoe/neighbors_share`) and your `/home` directory (`/home/username/neighbors_share`). With this shared folder, you can use the neighbors container to operate with your own data and save the results on your machine that hosts the container. Just make sure that you have saved your results in the `/home/jdoe/neighbors_share` direcotry BEFORE exiting the container.
+The flags usage explained:
+- `-it` run the container in CLI interactive mode
+- `--env="DISPLAY"` and `--net=host`: this helps the container to connect to the host screen (needed to display graphic output)
+- `-v ~/neighbors_share:/home/jdoe/neighbors`: this makes a folder shared between the neighbors container (`/home/jdoe/neighbors- _share`) and your `/home` directory (`/home/username/neighbors_share`). With this shared folder, you can use the neighbors container to operate with your own data and save the results on your machine that hosts the container. Just make sure that you have saved your results in the `/home/jdoe/neighbors_share` direcotry BEFORE exiting the container.
+- `--detach-keys="ctrl-@"` is used here to override the key sequence for switching between interactive mode and daemon mode (running in background). With this flag, the default sequence `Ctrl+P, Ctrl+Q` is changed to `Ctrl+Shift+2`. This frees the sequence `Ctrl+P` to be used alongside with `Ctrl+N` to navigate the shell command history within the container. 
 
 ## Tutorial
     
@@ -63,8 +64,8 @@ You may exit `more` (press `Ctrl+C`) to copy and paste commands from the tutoria
 
 ## Contacts
 
-If you experience some problems with the container, contact Ivan Tsers: `tsers@evolbio.mpg.de`.
-To report bugs and errors from `neighbors`, `fur`, or `biobox`, please open an issue in the respective GitHub repos: `https://github.com/EvolBioInf/neighbors`, `https://github.com/EvolBioInf/fur`, or `https://github.com/EvolBioInf/biobox`.
+If you experience some problems with the container, please open an issue at `https://github.com/IvanTsers/neighbors-docker`.
+To report bugs and errors from `neighbors`, `fur`, or `biobox`, please open issues in the respective GitHub repos: `https://github.com/EvolBioInf/neighbors`, `https://github.com/EvolBioInf/fur`, or `https://github.com/EvolBioInf/biobox`.
 
 ## References
 
