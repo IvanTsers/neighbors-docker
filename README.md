@@ -45,13 +45,14 @@ To stop the container and return to your host shell, press `Ctrl+D`.
 
 **Full functionality (recommended)** of the container is revealed with the following options:
 
-    docker run -it --env="DISPLAY" --net=host -v ~/neighbors_share:/home/jdoe/neighbors_share --detach-keys="ctrl-@" itsers/neighbors
+    docker run -it --env="DISPLAY" --net=host -v ~/neighbors_share:/home/jdoe/neighbors_share -h neighbors --detach-keys="ctrl-@" itsers/neighbors
 
 The flags usage explained:
 - `-it` run the container in CLI interactive mode
 - `--env="DISPLAY"` and `--net=host`: this helps the container to connect to the host screen (needed to display graphic output)
 - `-v ~/neighbors_share:/home/jdoe/neighbors`: this makes a folder shared between the neighbors container (`/home/jdoe/neighbors- _share`) and your `/home` directory (`/home/username/neighbors_share`). With this shared folder, you can use the neighbors container to operate with your own data and save the results on your machine that hosts the container. Just make sure that you have saved your results in the `/home/jdoe/neighbors_share` direcotry BEFORE exiting the container.
-- `--detach-keys="ctrl-@"` is used here to override the key sequence for switching between interactive mode and daemon mode (running in background). With this flag, the default sequence `Ctrl+P, Ctrl+Q` is changed to `Ctrl+Shift+2`. This frees the sequence `Ctrl+P` to be used alongside with `Ctrl+N` to navigate the shell command history within the container. 
+- `--detach-keys="ctrl-@"` is used here to override the key sequence for switching between interactive mode and daemon mode (running in background). With this flag, the default sequence `Ctrl+P, Ctrl+Q` is changed to `Ctrl+Shift+2`. This frees the sequence `Ctrl+P` to be used alongside with `Ctrl+N` to navigate the shell command history within the container.
+- `-h neighbors` changes container's host name (you will see `jdoe@neighbors:~$` in the terminal). Helps not to get confused in opened terminal instances. 
 
 ## Tutorial
     
