@@ -1,3 +1,7 @@
+## Deprecated
+This repository is deprecated. Updates to the code will be commited to 
+https://github.com/evolbioinf/neighbors
+
 ## Introduction
 
 This container includes all necessary tools for marker development using whole genome sequences 
